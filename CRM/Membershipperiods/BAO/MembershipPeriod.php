@@ -25,4 +25,19 @@ class CRM_Membershipperiods_BAO_MembershipPeriod extends CRM_Membershipperiods_D
 
   }
 
+  /**
+   * Get MembershipPeriods
+   *
+   * @param int|null $id filter by specific contact id or all
+   * @return array of CRM_Membershipperiods_DAO_MembershipPeriod|NULL
+   */
+  public static function retrieve($cid = null) {
+    $query = "SELECT * FROM civicrm_membership_period ";
+    if ($cid) {
+      $query .= ' WHERE contact_id = '.$cid; // XXX security? 
+    }
+    $dao = CRM_Core_DAO::executeQuery($query);
+    return $dao->fetchAll();
+  }
+
 }
