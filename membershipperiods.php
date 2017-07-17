@@ -149,3 +149,22 @@ function membershipperiods_civicrm_navigationMenu(&$menu) {
   ));
   _membershipperiods_civix_navigationMenu($menu);
 } // */
+
+/**
+ * Implements hook_civicrm_tabset to add Membership Periods tab.
+ *
+ */
+function membershipperiods_civicrm_tabset($tabsetName, &$tabs, $context) {
+  if (strpos($tabsetName, "civicrm/contact/view") === 0) {
+    // add membership-periods tab
+    $url = CRM_Utils_System::url('civicrm/contact/view/membershipperiods',"reset=1&snippet=1&force=1&cid=" . $context['contact_id']);
+    $tab = array( 
+      'id'    => 'membershipperiods',
+      'url'   => $url,
+      'title' => 'Membership Periods',
+      'weight' => 300,
+    );
+    $tabs[] = $tab;
+    // TODO Position this tab after membership tab
+  }
+}
