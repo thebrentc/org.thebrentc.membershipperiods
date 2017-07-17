@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Membershipperiods</base>
+  <class>MembershipPeriod</class>
+  <name>civicrm_membershipperiod</name>
+  <comment>Membership Periods entity</comment>
+  <add>4.4</add>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique MembershipPeriod ID</comment>
+    <add>4.4</add>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+
+  <field>
+    <name>contact_id</name>
+    <type>int unsigned</type>
+    <comment>FK to Contact</comment>
+    <add>4.4</add>
+  </field>
+  <foreignKey>
+    <name>contact_id</name>
+    <table>civicrm_contact</table>
+    <key>id</key>
+    <add>4.4</add>
+    <onDelete>CASCADE</onDelete>
+  </foreignKey>
+
+  <field>
+    <name>membership_id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>FK to Membership ID</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>start_date</name>
+    <type>date</type>
+    <required>false</required>
+    <comment>Start date of membership period</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>end_date</name>
+    <type>date</type>
+    <required>false</required>
+    <comment>End date of membership period</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>contribution_id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>FK to Contribution ID</comment>
+    <add>4.4</add>
+  </field>
+
+</table>

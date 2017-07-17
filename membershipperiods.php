@@ -168,3 +168,47 @@ function membershipperiods_civicrm_tabset($tabsetName, &$tabs, $context) {
     // TODO Position this tab after membership tab
   }
 }
+
+/**
+ * Implements hook_civicrm_post 
+ * to perform associated updates to Membership Period entity when Memberships are changed
+ *
+ */
+function membershipperiods_civicrm_post($op, $objectName, $objectId, &$objectRef) {
+
+  // catch submitted changes to civicrm_membership
+  if (isset($objectRef->entity_table) && $objectRef->entity_table === "civicrm_membership") {
+    
+    // process on any creating or updating of memberships    
+    if ($op === "create" || $op === "edit") {
+
+      // build reference to changed Membership record 
+      $membership_params = array(
+        'id' => $objectRef->entity_id,
+      );
+      // and get updated membership details
+      try {
+        // try standard CiviCRM API call    
+        $result = civicrm_api3('Membership', 'get', $membership_params);
+      } catch(Exception $e) {
+        // else HACK for problems getting API setup to work
+        global $civicrm_root;
+        require_once($civicrm_root."/api/v3/Membership.php");
+        $result = civicrm_api3_membership_get($membership_params);
+      }
+
+      // extract needed values for membership_period
+      $record = $result['values'][$result['id']];
+      $params = array(
+        'membership_id' => $record['id'],
+        'contact_id' => $record['contact_id'],
+        'start_date' => $record['start_date'],
+        'end_date' => $record['end_date'],
+      );
+
+      // create membership period record
+      $result = CRM_Membershipperiods_BAO_MembershipPeriod::create($params);
+    }
+  }
+
+}
