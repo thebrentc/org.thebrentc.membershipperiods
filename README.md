@@ -17,4 +17,11 @@ TODO: The membership period should be connected to a contribution record if a pa
 TODO: Create a CiviCRM-compatible API for this entity
 TODO: Tests
 
+Details:
+The structure follows CiviCRM architecture:
+The main controller (./membershipperiods.php):
+(a) Adds the Membership Periods tab
+(b) Adds post-processing to membership updates to create linked membership period records
+The Membership Periods tab is template-defined in ./templates/CRM/Membershipperiods/Page. It's controller in ./CRM/Page handles data preparation and passing.
+The Membership Periods data entity (BAO and DAO) are in ./CRM/Membershipperiods respective folders.
 
