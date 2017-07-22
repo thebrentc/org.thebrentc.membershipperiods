@@ -1,7 +1,7 @@
 <h3>Membership periods</h3>
 
 <div class="help">
-Please refresh after updating memberships.
+Please <a href="{crmURL p="civicrm/contact/view/"}&reset=1&force=1&cid={$cid}">refresh</a> after updating memberships.
 </div>
 
 <table>
