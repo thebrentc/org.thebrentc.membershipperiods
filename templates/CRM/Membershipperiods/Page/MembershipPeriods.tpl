@@ -5,10 +5,9 @@ Please <a href="{crmURL p="civicrm/contact/view/"}&reset=1&force=1&cid={$cid}">r
 </div>
 
 <table>
-<tr><th>&nbsp;</th><th>Start date</th><th>End date</th><th>&nbsp;</th></tr>
+<tr><th>Start date</th><th>End date</th><th>&nbsp;</th></tr>
 {foreach name=data item=row from=$data}
   <tr>
-    <td>{$row.id}</td>
     <td>{$row.start_date}</td>
     <td>{$row.end_date}</td>
     <td>
