@@ -156,8 +156,8 @@ function membershipperiods_civicrm_navigationMenu(&$menu) {
  */
 function membershipperiods_civicrm_tabset($tabsetName, &$tabs, $context) {
   if (strpos($tabsetName, "civicrm/contact/view") === 0) {
-    // add membership-periods tab
-    $url = CRM_Utils_System::url('civicrm/contact/view/membershipperiods',"reset=1&snippet=1&force=1&cid=" . $context['contact_id']);
+    // add membershipperiods tab
+    $url = CRM_Utils_System::url('civicrm/contact/view/membershipperiods',"reset=1&force=1&cid=" . $context['contact_id']);
     $tab = array( 
       'id'    => 'membershipperiods',
       'url'   => $url,
@@ -208,6 +208,9 @@ function membershipperiods_civicrm_post($op, $objectName, $objectId, &$objectRef
 
       // create membership period record
       $result = CRM_Membershipperiods_BAO_MembershipPeriod::create($params);
+
+      // TODO refresh membership periods tab data
+      
     }
   }
 

@@ -16,6 +16,10 @@ class CRM_Membershipperiods_Page_MembershipPeriods extends CRM_Core_Page {
     }
     $this->assign('cid', $_GET['cid']); 
 
+    // compute civicrm membership url for links on membership periods tab    
+    $membership_url = CRM_Utils_System::url('civicrm/contact/view/membership');
+    $this->assign('membership_url', $membership_url);
+
     // get membership periods data for contact
     $data = CRM_Membershipperiods_BAO_MembershipPeriod::retrieve($_GET['cid']);        
     $this->assign('data', $data); 

@@ -12,9 +12,9 @@ Installation:
 Use the normal CiviCRM installation method by visiting civicrm/admin/extensions.
 Currently, the extension will not populate membership periods from pre-existing memberships when installed.
 
+TODO: Refresh the membership periods tab/pane automatically when memberships are changed
 TODO: The membership period should be connected to a contribution record if a payment is taken for this membership or renewal.
 TODO: Create a CiviCRM-compatible API for this entity
 TODO: Tests
-
 
 
