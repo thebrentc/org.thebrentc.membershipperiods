@@ -15,7 +15,7 @@ Currently, the extension will not populate membership periods from pre-existing 
 TODO: Refresh the membership periods tab/pane automatically when memberships are changed
 TODO: The membership period should be connected to a contribution record if a payment is taken for this membership or renewal.
 TODO: Create a CiviCRM-compatible API for this entity
-TODO: Tests
+TODO: Tests (TODO Install development/testing architecture successfully)
 
 Details:
 The structure follows CiviCRM architecture:
