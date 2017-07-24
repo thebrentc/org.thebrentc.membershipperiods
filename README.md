@@ -3,7 +3,7 @@ Membership periods extension for CiviCRM
 
 Note: This is an undeveloped extension work-in-progress, not recommended for general use.
 
-Aim:
+Aim:<br/>
 Extend the CiviCRM membership component so that when a membership is created or renewed a record for the membership “period” is recorded. A Membership Period tab on the contact view should show membership period records for the contact.
 
 The extension adds a membership period record for any membership change including creation, updating and renewing.
